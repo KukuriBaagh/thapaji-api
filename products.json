@@ -2,42 +2,43 @@
     {
         "name": "iphone",
         "price": 154,
-        "feature": true,
-        "campany": "apple"
+        "featured": false,
+        "company": "apple"
     },
     {
         "name": "iphone10",
         "price": 1154,
-        "feature": true,
-        "campany": "apple"
+        "featured": false,
+        "company": "apple"
     },
     {
         "name": "watch",
         "price": 204,
-        "feature": true,
-        "campany": "apple"
+        "featured": true,
+        "company": "apple"
     },
     {
         "name": "watch10",
         "price": 304,
-        "feature": true,
-        "campany": "apple"
+        "featured": true,
+        "company": "apple"
     },
     {
         "name": "iphone11",
         "price": 1200,
-        "feature": true,
-        "campany": "apple"
+        "featured": false,
+        "company": "apple"
     },
     {
         "name": "iphone12",
         "price": 1300,
-        "feature": true,
-        "campany": "apple"
+        "featured": false,
+        "company": "apple"
     },
     {
         "name": "dell gaming",
         "price": 501,
+        "featured": false, 
         "company": "dell" 
     },
     {
