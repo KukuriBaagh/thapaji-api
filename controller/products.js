@@ -1,13 +1,21 @@
 const Product = require("../models/product");
 
-const getAllProducts = async(req, res) => {
-    const myData = await Product.find({});
+const getAllProducts = async (req, res) => {
+
+    const { company } = req.query;
+    const queryObject = {};
+
+    if (company) {
+        queryObject.company = company;
+        console.log(queryObject)
+    }
+
+    const myData = await Product.find(queryObject);
     res.status(200).json({ myData });
 };
 
-const getAllProductsTesting = async(req, res) => {
+const getAllProductsTesting = async (req, res) => {
     const myData = await Product.find(req.query);
-    console.log("~ file: product.js ~line 10 ~getAllProductsTesting ~req.query ", req.query);
     res.status(200).json({ myData });
 };
 
