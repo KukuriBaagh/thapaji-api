@@ -5,7 +5,6 @@ const getAllProducts = async (req, res) => {
     //__________________________________________SEARCH FUNCTIONALITY
     // req.query is fetched from qery string in format of <?name=iphone>
     const { company, name, featured, sort, select } = req.query;
-    console.log("🚀 ~ file: products.js:7 ~ getAllProducts ~ sort:", sort)
     const queryObject = {};
     // Request Object to query param as company
     if (company) {
@@ -28,6 +27,8 @@ const getAllProducts = async (req, res) => {
         let sortFix = sort.split(",").join(" ");
         apiData = apiData.sort(sortFix);
     }
+
+    //_________________________________________________SELECT FUNCTIONALITY
     
     if (select) {
         // let selectFix = select.replace(",", " ");
@@ -35,10 +36,18 @@ const getAllProducts = async (req, res) => {
         apiData = apiData.select(selectFix);
     }
 
+    //_________________________________________________PAGINATION FUNCTIONALITY
+
+    let page = Number(req.query.page) || 1;
+    let limit = Number(req.query.limit) || 3;
+    let skip = (page - 1) * limit;
+
+    apiData = apiData.skip(skip).limit(limit);
+
     console.log(queryObject);
 
     const myData = await apiData;
-    res.status(200).json({ myData });
+    res.status(200).json({ myData, nbHits: myData.length });
 };
 //__________________________________________SEARCH FUNCTIONALITY ENDS HERE
 
